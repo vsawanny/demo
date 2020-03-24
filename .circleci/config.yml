@@ -7,15 +7,10 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
     - checkout
-    - run:
-          name: Install Node.js dependencies with Npm
-          command: npm install
-      - run:
-          name: Test
-          command: CI=true npm run coverage
     - sonarcloud/scan
 workflows:
   my-workflow:
     jobs:
       - build:
           context: sonarcloud
+
